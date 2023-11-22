@@ -15,8 +15,8 @@ import javax.persistence.*;
 @ToString
 public class User {
     @Id
-    @GeneratedValue
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     @Column
     private String name;
 }
