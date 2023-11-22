@@ -1,10 +1,10 @@
 package com.siheca.authentication.service;
 
-import com.siheca.authentication.entities.User;
+import com.siheca.authentication.response.UserResponse;
 
 import java.util.List;
 
 public interface UserService {
 
-    List<User> getUsers();
+    List<UserResponse> getUsers();
 }
