@@ -1,12 +1,10 @@
 package com.siheca.authentication.controller;
 
-import com.siheca.authentication.entities.User;
+import com.siheca.authentication.request.UserRequest;
 import com.siheca.authentication.response.UserResponse;
 import com.siheca.authentication.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,7 +12,7 @@ import java.util.List;
 @RequestMapping("v1")
 public class UserController {
 
-    private UserService userService;
+    private final UserService userService;
 
 
     @Autowired
@@ -25,5 +23,10 @@ public class UserController {
     @GetMapping(path = "/users")
     List<UserResponse> getUsers(){
         return  userService.getUsers();
+    }
+
+    @PostMapping(path = "/users")
+    void saveUser(@RequestBody UserRequest userRequest){
+        userService.saveUser(userRequest);
     }
 }
