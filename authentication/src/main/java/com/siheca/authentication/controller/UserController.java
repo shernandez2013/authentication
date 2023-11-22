@@ -24,7 +24,6 @@ public class UserController {
 
     @GetMapping(path = "/users")
     List<UserResponse> getUsers(){
-        List<User> users = userService.getUsers();
-        return null;
+        return  userService.getUsers();
     }
 }
