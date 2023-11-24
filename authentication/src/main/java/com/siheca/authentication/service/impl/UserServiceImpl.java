@@ -5,6 +5,7 @@ import com.siheca.authentication.repository.UserRepository;
 import com.siheca.authentication.request.UserRequest;
 import com.siheca.authentication.response.UserResponse;
 import com.siheca.authentication.service.UserService;
+import com.siheca.authentication.util.HashingData;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.transaction.Transactional;
@@ -22,10 +23,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void saveUser(UserRequest userRequest) {
+    public void saveUser(UserRequest userRequest) throws Exception {
         User user = new User();
         user.setId(0);
         user.setName(userRequest.getName());
+        user.setLastName(userRequest.getLastName());
+        user.setPassword(HashingData.encrypt(userRequest.getPassword()));
         userRepository.save(user);
     }
 
