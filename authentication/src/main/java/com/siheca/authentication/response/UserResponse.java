@@ -1,7 +1,6 @@
 package com.siheca.authentication.response;
 
 import com.siheca.authentication.entities.User;
-import com.siheca.authentication.util.HashingData;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
