@@ -15,4 +15,8 @@ import java.io.Serializable;
 public class UserRequest implements Serializable {
     @ApiModelProperty(name = "user name", notes = "This is user name")
     private String name;
+    @ApiModelProperty(name = "Last name", notes = "Last name of user")
+    private String lastName;
+    @ApiModelProperty(name = "password", notes = "password of user, this data is encrypted before been stored")
+    private String password;
 }
