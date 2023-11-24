@@ -40,7 +40,7 @@ public class UserController {
             @ApiResponse(code = 400, message = "Not saved - data not saved")
     })
     @PostMapping(path = "/users")
-    void saveUser(@RequestBody UserRequest userRequest) {
+    void saveUser(@RequestBody UserRequest userRequest) throws Exception {
         userService.saveUser(userRequest);
     }
 }

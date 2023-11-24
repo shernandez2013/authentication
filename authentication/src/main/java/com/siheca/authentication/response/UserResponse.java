@@ -1,6 +1,7 @@
 package com.siheca.authentication.response;
 
 import com.siheca.authentication.entities.User;
+import com.siheca.authentication.util.HashingData;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,13 +13,24 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class UserResponse {
-    @ApiModelProperty(notes = "user id", example = "1", required = true)
+    @ApiModelProperty(notes = "User id")
     private Integer id;
-    @ApiModelProperty(notes = "user name", example = "Joe", required = true)
+    @ApiModelProperty(notes = "User name")
     private String name;
+    @ApiModelProperty(notes = "Last name")
+    private String lastName;
+
+    @ApiModelProperty(notes = "Last name")
+    private String password;
+
+    @ApiModelProperty(notes = "Last name")
+    private String stringPassword;
 
     public UserResponse(User user) {
         this.id = user.getId();
         this.name = user.getName();
+        this.lastName = user.getLastName();
+        this.password = user.getPassword();
+        this.stringPassword = user.getPassword();
     }
 }
